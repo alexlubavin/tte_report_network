@@ -1347,9 +1347,7 @@ def run():
     
     def save_report():
         data.to_excel('data.xlsx', index=False)
-        f = open('C:/Users/Doc/Desktop/tte_max_presision/reports/' + save_id + '.txt', 'w')
-        f.write(report)
-        f.close()
+
             
     save_btn = st.button('Сохранить протокол', key=None, help=None, 
                          on_click=save_report(), args=None, kwargs=None, type="secondary", 

@@ -542,7 +542,7 @@ def run():
     la_pressure_check = st.checkbox('Определение давления в легочной артерии затруднено')
     
     if la_pressure_check:    
-        la_pressure = st.caption('определение давления в легочной артерии затруднено ввиду низкого качества эхосигнала трикуспиальной регургитации')
+        la_pressure = 0
     else:        
         la_pressure = st.number_input('Расчетное давление в легочной артерии, мм.рт.ст.', min_value=0.0, max_value=None, value=18.0, 
                                        step=1.0, format=None, key=None, help=None, on_change=None, 

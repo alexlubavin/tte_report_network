@@ -1208,10 +1208,15 @@ def run():
      
     # Report to text    
 
-    report_str = st.text_area('Протокол исследования', value=report_data, 
+    show_report = st.checkbox('РЕДАКТИРОВАТЬ АВТОМАТОМАТИЧЕСКОЕ ЗАКЛЮЧЕНИЕ')
+    
+    if show_report == True:
+
+        report_str = st.text_area('Протокол исследования', value=report_data, 
                           height=1400, max_chars=None, key=None, help=None, on_change=None, 
                           args=None, kwargs=None, placeholder=None, disabled=False, label_visibility="visible")
-
+    else:
+        st.caption(report) 
 
 
 
@@ -1314,9 +1319,15 @@ def run():
     save_also = str(also)
     
     save_predict = float(probs[:,1][:])
+
+    try:
     
-    save_report_str = str(report_str)
+        save_report_str = str(report_str)
     
+    except:
+        
+        save_report_str = str(report_data)
+  
 # Save data
     
     data.loc[len(data.index )] = [save_id, save_name, save_dayofbirth, save_date_exam, save_machine, save_grow, save_weigt,
